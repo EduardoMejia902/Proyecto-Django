@@ -1,0 +1,41 @@
+{% extends "contenido/base.html" %}
+
+{% block titulo %}Contacto{% endblock %}
+
+{% block contenido %}
+    <h2>Solicitar Información</h2>
+    <p>Llena el siguiente formulario para recibir detalles sobre nuestros cursos.</p>
+
+    <!-- Formulario solicitado: nombre, correo, curso, comentarios, botón -->
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Nombre completo:</label>
+            <input type="text" name="nombre" placeholder="Ingresa tu nombre" required>
+        </div>
+
+        <div class="form-group">
+            <label>Correo electrónico:</label>
+            <input type="email" name="correo" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="form-group">
+            <label>Curso de interés:</label>
+            <select name="curso" required>
+                <option value="">-- Selecciona un curso --</option>
+                {% for curso in cursos %}
+                    <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                {% empty %}
+                    <option value="general">Información General</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Comentarios adicionales:</label>
+            <textarea name="comentarios" rows="4" placeholder="Escribe tus dudas aquí..."></textarea>
+        </div>
+
+        <button type="submit" class="btn">Enviar Solicitud</button>
+    </form>
+{% endblock %}

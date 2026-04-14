@@ -1,0 +1,23 @@
+{% extends "contenido/base.html" %}
+
+{% block titulo %}Lista de Cursos{% endblock %}
+
+{% block contenido %}
+    <h2>Cursos Disponibles</h2>
+    <p>Explora nuestra oferta académica (Base de datos, programación, etc.):</p>
+
+    {% if cursos %}
+        <ul style="list-style-type: none; padding: 0;">
+            {% for curso in cursos %}
+                <li style="background: #ecf0f1; margin-bottom: 10px; padding: 15px; border-left: 5px solid #3498db;">
+                    <strong>{{ curso.nombre }}</strong> <br>
+                    <small style="color: #7f8c8d;">Categoría: {{ curso.categoria }}</small>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div style="background: #fdf2e9; padding: 15px; border-left: 5px solid #e67e22;">
+            Aún no hay cursos registrados. Ingresa al panel de Administrador para agregar algunos.
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %} PRINCIPAL {% endblock %}
+{% block encabezado %}
+    <div class="page-header"><div class="page-title"><h3>Alumnos <small>Lista de Alumnos DSM</small></h3></div></div>
+{% endblock %}
+{% block contenido %}
+<div class="page-content">
+    <table class="table">
+        <thead>
+            <tr><th>Foto</th><th>Matricula</th><th>Nombre</th><th>Carrera</th><th>Turno</th></tr>
+        </thead>
+        <tbody>
+            {% for alumno in alumnos %}
+            <tr>
+                <td class="text-center">
+                    {% if alumno.imagen %}
+                        <img src="{{ alumno.imagen.url }}" alt="Foto" width="50" height="50" style="border-radius: 4px;">
+                    {% endif %}
+                </td>
+                <td>{{ alumno.matricula }}</td>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.carrera }}</td>
+                <td>{{ alumno.turno }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="5" style="text-align:center;">No hay alumnos registrados.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

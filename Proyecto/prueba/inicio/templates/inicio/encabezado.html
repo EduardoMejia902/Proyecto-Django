@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block titulo %} Módulos Django {% endblock %}</title>
+    <link href="{% static 'inicio/css/styles.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="user-menu">
+                    <a href="#">
+                        <img src="{% block imagen %}{% static 'inicio/images/home.svg' %}{% endblock %}" class="user-icon">
+                        <div class="user-info">Principal <span>DSM</span></div>
+                    </a>
+                </div>
+                <ul class="navigation">
+                    <li><a href="{% url 'Principal' %}">Principal</a></li>
+                    <li><a href="{% url 'Formulario' %}">Registro</a></li>
+                    <li><a href="{% url 'Contacto' %}">Contacto</a></li>
+                    <li><a href="{% url 'Comentarios' %}">Comentarios</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            {% block encabezado %}{% endblock %}
+            {% block contenido %}{% endblock %}
+        </div>
+    </div>
+</body>
+</html>

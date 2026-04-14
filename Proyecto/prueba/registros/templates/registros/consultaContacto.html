@@ -1,0 +1,30 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %} COMENTARIOS DE CONTACTO {% endblock %}
+{% block encabezado %}
+    <div class="page-header"><div class="page-title"><h3>COMENTARIOS <small>Lista de Comentarios</small></h3></div></div>
+{% endblock %}
+{% block contenido %}
+<div class="page-content">
+    <table class="table">
+        <thead>
+            <tr><th>Usuario</th><th>Mensaje</th><th></th><th></th></tr>
+        </thead>
+        <tbody>
+            {% for comentario in comentarios %}
+            <tr>
+                <td>{{ comentario.usuario }}</td>
+                <td>{{ comentario.mensaje }}</td>
+                <td class="text-center">
+                    <a href="{%url 'ConsultaIndividual' comentario.id%}">Editar</a>
+                </td>
+                <td class="text-center">
+                    <a href="{% url 'Eliminar' comentario.id %}" style="color: #d9534f; font-weight: bold;">Eliminar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td.  colspan="4" style="text-align:center;">No hay comentarios aún.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

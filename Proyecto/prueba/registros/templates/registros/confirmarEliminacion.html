@@ -1,0 +1,18 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %} ELIMINAR {% endblock %}
+{% block encabezado %}
+    <div class="page-header"><div class="page-title"><h3>ELIMINAR COMENTARIO</h3></div></div>
+{% endblock %}
+{% block contenido %}
+<div class="page-content">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="callout callout-danger" style="background-color: #f2dede; color: #a94442; padding: 20px; border-radius: 4px; margin-bottom: 20px;">
+            <h5 style="margin-top: 0; font-size: 18px;">Eliminando Comentario</h5>
+            <p>¿Estás seguro de que deseas <strong>Eliminar</strong> el comentario seleccionado?</p>
+        </div>
+        <button type="submit" class="btn" style="background-color: #d9534f; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 4px;">Sí, Eliminar</button>
+        <a href="{% url 'Comentarios' %}" class="btn" style="background-color: #337ab7; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; display: inline-block;">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

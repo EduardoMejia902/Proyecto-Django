@@ -1,0 +1,25 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %} CONTACTO {% endblock %}
+{% block encabezado %}
+    <div class="page-header"><div class="page-title"><h3>Contáctanos <small>Ingresa tus dudas</small></h3></div></div>
+{% endblock %}
+{% block contenido %}
+<div class="page-content">
+    <form class="form-horizontal" action="{% url 'Registrar' %}" method="POST" role="form">
+        {% csrf_token %}
+        <div class="panel">
+            <div class="form-group">
+                <label>Nombre:</label>
+                <input name="usuario" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Mensaje:</label>
+                <textarea name="mensaje" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-actions" style="margin-top: 20px; text-align: right;">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

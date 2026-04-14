@@ -1,0 +1,21 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %} REGISTRO {% endblock %}
+{% block encabezado %}
+    <div class="page-header"><div class="page-title"><h3>Registro <small>Ingresa tu información</small></h3></div></div>
+{% endblock %}
+{% block contenido %}
+<div class="page-content">
+    <form class="form-horizontal" action="#" role="form">
+        <div class="panel">
+            <div class="form-group"><label>Matricula:</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>Nombre:</label><input type="text" class="form-control"></div>
+            <div class="form-group"><label>Carrera:</label>
+                <select class="form-control"><option>ING. DGS</option><option>ING. EVND</option></select>
+            </div>
+            <div class="form-group"><label>Turno:</label>
+                <div><input type="radio" name="turno"> Matutino <input type="radio" name="turno"> Vespertino</div>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
